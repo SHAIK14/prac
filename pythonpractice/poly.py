@@ -40,7 +40,10 @@ class NEFTransaction(Transaction):
         print(" this is the NEFT print")
 
 
-t1 = UPITransaction("asif", "rishith", "10000", "abc@upiid")
-t1.show_details()
-t2 = NEFTransaction("asif", "rishith", "10000", "HDFC11000111")
-t2.show_details()
+transactions = [
+    UPITransaction("asif", "rishith", "10000", "abc@upiid"),
+    NEFTransaction("asif", "rishith", "10000", "HDFC11000111"),
+]
+
+for t in transactions:
+    t.show_details()
