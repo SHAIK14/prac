@@ -15,6 +15,9 @@ class Transaction(ABC):
     def process_payment(self):
         print(" this is the generic print")
 
+    def __str__(self):
+        return "hi this geneic trascaiton , so we do upi and bnefttandsacitosn "
+
 
 class UPITransaction(Transaction):
     def __init__(self, sender, receiver, amount, upi_id):
@@ -28,6 +31,9 @@ class UPITransaction(Transaction):
 
     def process_payment(self):
         print(" this is the upi print")
+
+    def __eq__(self, other):
+        return self._amount == other._amount
 
 
 class NEFTransaction(Transaction):
@@ -44,11 +50,7 @@ class NEFTransaction(Transaction):
         print(" this is the NEFT print")
 
 
-transactions = [
-    UPITransaction("asif", "rishith", "10000", "abc@upiid"),
-    NEFTransaction("asif", "rishith", "10000", "HDFC11000111"),
-]
+t1 = UPITransaction("asif", "rishit", 10000, "asif@okaxis")
+t2 = NEFTransaction("rahul", "rishit", 50000, "HDFC111")
 
-for t in transactions:
-    t.show_details()
-    t.process_payment()
+print(t1 == t2)
