@@ -1,4 +1,7 @@
-class Transaction:
+from abc import ABC, abstractmethod
+
+
+class Transaction(ABC):
     def __init__(self, sender, receiver, amount):
         self.sender = sender
         self.receiver = receiver
@@ -8,6 +11,7 @@ class Transaction:
     def show_details(self):
         print(f"{self.sender} sent {self._amount} to the {self.receiver}")
 
+    @abstractmethod
     def process_payment(self):
         print(" this is the generic print")
 
