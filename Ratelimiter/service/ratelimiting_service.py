@@ -1,3 +1,5 @@
+import threading
+
 from Ratelimiter.config.config import CONFIG, StrategyType, Tier
 from Ratelimiter.strategy.factory import make_strategy
 
@@ -16,11 +18,12 @@ class RateLimiterService:
         self.client_tiers = {"abc": Tier.FREE, "xyz": Tier.PREMIUM}
         self.Strategy_type = Strategy_type
         self.limiters = {}
+        self.lock = threading.Lock()
 
     def is_allowed(self, api_key):
         tier = self.client_tiers[api_key]
-
-        if api_key not in self.limiters:
-            params = CONFIG[self.Strategy_type][tier]
-            self.limiters[api_key] = make_strategy(self.Strategy_type, params)
-        return self.limiters[api_key].allow()
+        with self.lock:
+            if api_key not in self.limiters:
+                params = CONFIG[self.Strategy_type][tier]
+                self.limiters[api_key] = make_strategy(self.Strategy_type, params)
+            return self.limiters[api_key].allow()
