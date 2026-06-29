@@ -1,9 +1,9 @@
 from enum import Enum
 
 
-class Teir(Enum):
-    Free = "free"
-    Premium = "Premium"
+class Tier(Enum):
+    FREE = "free"
+    PREMIUM = "Premium"
 
 
 class StrategyType(Enum):
@@ -13,21 +13,21 @@ class StrategyType(Enum):
 
 CONFIG = {
     StrategyType.TOKEN: {
-        Teir.Free: {
+        Tier.FREE: {
             "capacity": 5,
             "refill_rate": 1,
         },
-        Teir.Premium: {
+        Tier.PREMIUM: {
             "capacity": 100,
             "refill_rate": 10,
         },
     },
     StrategyType.FIXED: {
-        Teir.Free: {
+        Tier.FREE: {
             "limit": 5,
             "window_size": 10,
         },
-        Teir.Premium: {
+        Tier.PREMIUM: {
             "limit": 100,
             "window_size": 10,
         },

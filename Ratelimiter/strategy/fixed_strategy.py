@@ -11,4 +11,12 @@ class FixedStrategy(RateLimitStrategy):
         self.window_start = time.time()
 
     def allow(self) -> bool:
-        pass
+        now = time.time()
+
+        if now - self.window_start >= self.window_size:
+            self.count = 0
+            self.window_start = now
+        if self.count <= self.limit:
+            self.count += 1
+            return True
+        return False
