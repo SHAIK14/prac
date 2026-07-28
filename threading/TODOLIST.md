@@ -2,14 +2,14 @@
 
 ## Part 1 — Foundations
 - [x] 1. Process vs Thread vs Coroutine
-- [ ] 2. The GIL
-- [ ] 3. When to use threads vs processes vs async
+- [x] 2. The GIL
+- [x] 3. When to use threads vs processes vs async
 
 ## Part 2 — Threading
-- [ ] 4. Creating & managing threads
-- [ ] 5. Race conditions
-- [ ] 6. Locks (Lock, RLock)
-- [ ] 7. Deadlocks
+- [x] 4. Creating & managing threads
+- [x] 5. Race conditions
+- [x] 6. Locks (Lock, RLock)
+- [x] 7. Deadlocks
 - [ ] 8. Condition, Event, Semaphore
 - [ ] 9. Queue (producer/consumer)
 - [ ] 10. ThreadPoolExecutor

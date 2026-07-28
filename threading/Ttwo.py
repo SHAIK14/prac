@@ -18,6 +18,8 @@ t1.join()
 t2.join()
 print(f"thread: {time.time() - start:.2f}s")
 
+start = time.time()
+
 cpu_task()
 cpu_task()
 print(f"Sequential: {time.time() - start:.2f}s")
