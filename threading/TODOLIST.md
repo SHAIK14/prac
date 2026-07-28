@@ -10,7 +10,7 @@
 - [x] 5. Race conditions
 - [x] 6. Locks (Lock, RLock)
 - [x] 7. Deadlocks
-- [ ] 8. Condition, Event, Semaphore
+- [x] 8. Condition, Event, Semaphore
 - [ ] 9. Queue (producer/consumer)
 - [ ] 10. ThreadPoolExecutor
 
