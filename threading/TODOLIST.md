@@ -11,13 +11,13 @@
 - [x] 6. Locks (Lock, RLock)
 - [x] 7. Deadlocks
 - [x] 8. Condition, Event, Semaphore
-- [ ] 9. Queue (producer/consumer)
-- [ ] 10. ThreadPoolExecutor
+- [x] 9. Queue (producer/consumer)
+- [x] 10. ThreadPoolExecutor
 
 ## Part 3 — Multiprocessing
-- [ ] 11. multiprocessing basics
-- [ ] 12. Inter-process communication
-- [ ] 13. ProcessPoolExecutor
+- [x] 11. multiprocessing basics
+- [x] 12. Inter-process communication (skipped — not needed for this interview, understood conceptually)
+- [x] 13. ProcessPoolExecutor (skipped — not needed for this interview, understood conceptually)
 
 ## Part 4 — Async
 - [ ] 14. asyncio fundamentals
