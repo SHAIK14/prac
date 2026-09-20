@@ -48,7 +48,7 @@ const ValidatedForm =()=>{
 
   return <>
 
-    <form onSubmit={}>
+    <form onSubmit={handleChange}>
       <input
         type ='text'
         name='name'

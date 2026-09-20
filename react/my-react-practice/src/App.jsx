@@ -1,6 +1,8 @@
 import Warmup from "./components/Warmup"
 import Pagination from "./components/Pagination"
 import ValidatedForm from "./components/ValidatedForm"
+import Debounce from "./components/Debounce"
+
 
 import {Routes, Route, Link} from 'react-router-dom'
 
@@ -16,6 +18,8 @@ const App = ()=> {
         <Link to='/Warmup'>Warmup</Link>
         <Link to='/pagination'>Pagination</Link>
         <Link to='/ValidatedForm'>ValidatedForm</Link>
+        <Link to='/Debounce'>Debunce check</Link>
+
 
 
       </nav>
@@ -24,6 +28,8 @@ const App = ()=> {
         <Route path="/Warmup" element={<Warmup/>}></Route>
         <Route path="/Pagination" element={<Pagination/>}></Route>
         <Route path="/ValidatedForm" element={<ValidatedForm/>}></Route>
+        <Route path="/Debounce" element={<Debounce/>}></Route>
+
 
 
       </Routes>
