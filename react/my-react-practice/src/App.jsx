@@ -1,33 +1,29 @@
-import ProfileCard from './components/Profilecard'
-import {useState} from 'react'
+import Warmup from "./components/Warmup"
+import Pagination from "./components/Pagination"
+import {Routes, Route, Link} from 'react-router-dom'
+
 const App = ()=> {
 
-  const [show, setShow] = useState(false)
-  const[count, setCount] = useState(0)
 
-
-
-
-  const fruits =["mangoes","apples","bananas"]
 
 
   return (
     <>
-      <ProfileCard name="asif" role="fullstack" />
-      <div>
-        <ul>
-        {fruits.map((fruit,idx) =>{
-          return <li key={idx}>{fruit}</li>
-        })}
-      </ul>
-      </div>
-      <div>
-        {show?"grind 2days":""}
-        <button onClick={()=>setShow((prev)=>!prev)}>showme</button>
-      </div>
-      <div>
-        <button onClick={()=>setCount((prev)=> prev+1)}> + </button> {count} <button onClick={()=>setCount((prev)=> prev-1)}> - </button>
-      </div
+      <nav>
+        <Link to='/'>Home</Link>
+        <Link to='/Warmup'>Warmup</Link>
+        <Link to='/pagination'>Pagination</Link>
+
+      </nav>
+      <Routes>
+        <Route path="/" element={<h1>react</h1>}></Route>
+        <Route path="/Warmup" element={<Warmup/>}></Route>
+        <Route path="/Pagination" element={<Pagination/>}></Route>
+
+      </Routes>
+
+
+
     </>
   )
 }
