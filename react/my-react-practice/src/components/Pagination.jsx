@@ -1,4 +1,4 @@
-import {useState} from'react'
+import {useState, useEffect} from'react'
 const items =[
   { id: 1,  name: "Item 1" },
   { id: 2,  name: "Item 2" },
@@ -25,27 +25,58 @@ const items =[
   { id: 23, name: "Item 23" }
 ]
 
+const fetchitems = (page,limit)=>{
+  return new Promise((resolve) =>{
+    setTimeout(() =>{
+      const start = (page-1)*limit
+      const end = page * limit
+      resolve({
+        data : items.slice(start,end),
+        totalpages: Math.ceil(items.length/limit)
+      })
+    },800)
+
+  })
+}
+
 const Pagination =()=>{
   const[page,setPage] = useState(1)
+  const[data,setData] = useState([])
+  const [totalPages, setTotalPages] = useState(1);
+  const[loading,setLoading] = useState(false)
   const limit = 5
 
-  const data = items.slice((page-1)*limit , page*limit)
+  useEffect(()=>{
+    setLoading(true)
+    fetchitems(page,limit).then((res)=>{
+      setData(res.data)
+      setTotalPages(res.totalpages)
+      setLoading(false)
+    })
+
+
+
+  },[page])
+
+
 
 
   return <>
     <h1> pagination</h1>
     <div>
+      { loading? <p>Loading....</p> :
       <ul>
         {data.map(item =>{
           return <li key = {item.id}>{item.name}</li>
         })}
       </ul>
+      }
     </div>
 
     <div>
       <button disabled ={page ===1} onClick={()=>setPage(prev => prev-1)}>prev</button>
-      {page}
-      <button disabled ={page >= Math.ceil(items.length/limit)} onClick={()=>setPage(prev => prev+1)}>next</button>
+      page{page} of {totalPages}
+      <button disabled ={page >=totalPages } onClick={()=>setPage(prev => prev+1)}>next</button>
     </div>
 
   </>
